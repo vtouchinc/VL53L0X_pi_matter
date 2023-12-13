@@ -45,6 +45,7 @@ def main():
     try:
         while True:
             mmDetectedDistance = tof_sensor.get_distance()
+            print(f"Measured distance is :{mmDetectedDistance} mm" )
             frameList.append(mmDetectedDistance)
             check_click(frameList)
             sleep(0.001)
