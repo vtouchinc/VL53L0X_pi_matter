@@ -48,7 +48,7 @@ def main():
             print(f"Measured distance is :{mmDetectedDistance} mm" )
             frameList.append(mmDetectedDistance)
             check_click(frameList)
-            sleep(0.001)
+            sleep(0.01)
     except KeyboardInterrupt:
         print("\nquit")
 
