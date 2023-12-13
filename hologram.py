@@ -36,7 +36,6 @@ def main():
             .format(tof_sensor.idModuleRevMajor, tof_sensor.idModuleRevMinor))
         print("Sensor date/time: {:X}/{:X}".format(tof_sensor.idDate, tof_sensor.idTime))
     tof_sensor.default_settings()
-
     sleep(1)
 
     """-- MAIN LOOP --"""
@@ -51,7 +50,6 @@ def main():
             sleep(0.01)
     except KeyboardInterrupt:
         print("\nquit")
-        tof_sensor.stop_range_continuous()
 
 
 def check_click(distanceList : list):
