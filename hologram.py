@@ -9,7 +9,7 @@ except ImportError:
 
 DISTANCE_QUEUE_SIZE = 10
 PUSH_PULL_INTERVAL_CONSTANT = 60
-ATTACHABLE_DISTANCE = 150
+ATTACHABLE_DISTANCE = 100
 TOGGLE_INTERVAL_CONSTANT = 10
 TOGGLE_INTERVAL = 5
 TOF_READ_PERIOD = 0.005
@@ -59,11 +59,11 @@ def check_click(distanceList : list):
     if(len(distanceList) >= DISTANCE_QUEUE_SIZE):
         maxDistance = max(distanceList)
         minDistance = min(distanceList)
-        distanceInterval = maxDistance - minDistance
+        intervalDistance = maxDistance - minDistance
         maxIndex = distanceList.index(maxDistance)
         minIndex = distanceList.index(minDistance)
         indexInterval = maxIndex - minIndex
-        if(distanceInterval > PUSH_PULL_INTERVAL_CONSTANT):
+        if(intervalDistance > PUSH_PULL_INTERVAL_CONSTANT):
             if( maxIndex > minIndex):
                 ## Rising edge
                 pull()
@@ -72,10 +72,11 @@ def check_click(distanceList : list):
                 push()
             distanceList.clear()
         elif(maxDistance < ATTACHABLE_DISTANCE):
-            if(distanceInterval > TOGGLE_INTERVAL_CONSTANT):
+            if(intervalDistance > TOGGLE_INTERVAL_CONSTANT):
                 toggle()
             # toggle()
-            distanceList.clear()
+                distanceList.clear()
+            distanceList.pop()
 
 def push():
     # buzzer()
