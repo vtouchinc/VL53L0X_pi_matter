@@ -41,10 +41,14 @@ tof_sensor.default_settings()
 sleep(1)
 
 """-- MAIN LOOP --"""
+mmDetectedDistance = 0
 try:
     while True:
+        mmDetectedDistance = tof_sensor.get_distance()
         print("Measured distance is : ", tof_sensor.get_distance(), " mm" )
-        print("Measured light level is : ", tof_sensor.get_ambient_light(20), " lux")
-        sleep(1)
+        sleep(0.01)
 except KeyboardInterrupt:
     print("\nquit")
+
+
+def check_touch()
