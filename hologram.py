@@ -11,7 +11,7 @@ except ImportError:
 
 
 
-def main(frameQueue):
+def main():
     """-- Setup --"""
     debug = False
     if len(sys.argv) > 1:
