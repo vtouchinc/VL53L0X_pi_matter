@@ -62,7 +62,7 @@ def check_click(distanceList : list):
         intervalDistance = maxDistance - minDistance
         maxIndex = distanceList.index(maxDistance)
         minIndex = distanceList.index(minDistance)
-        indexInterval = maxIndex - minIndex
+        intervalIndex = maxIndex - minIndex
         if(intervalDistance > PUSH_PULL_INTERVAL_CONSTANT):
             if( maxIndex > minIndex):
                 ## Rising edge
@@ -72,7 +72,7 @@ def check_click(distanceList : list):
                 push()
             distanceList.clear()
         elif(maxDistance < ATTACHABLE_DISTANCE):
-            if(intervalDistance > TOGGLE_INTERVAL_CONSTANT):
+            if(intervalIndex > TOGGLE_INTERVAL_CONSTANT):
                 toggle()
             # toggle()
                 distanceList.clear()
