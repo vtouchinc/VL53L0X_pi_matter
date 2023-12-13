@@ -49,6 +49,3 @@ try:
         sleep(0.01)
 except KeyboardInterrupt:
     print("\nquit")
-
-
-def check_touch()
