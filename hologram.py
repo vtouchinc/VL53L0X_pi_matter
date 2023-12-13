@@ -53,7 +53,7 @@ def main():
 
 
 def check_click(distanceList : list):
-    if(distanceList.count() >= 10):
+    if(len(distanceList) >= 10):
         maxDistance = max(distanceList)
         minDistance = min(distanceList)
         distanceInterval = maxDistance - minDistance
