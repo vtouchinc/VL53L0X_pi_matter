@@ -51,6 +51,7 @@ def main():
             sleep(0.01)
     except KeyboardInterrupt:
         print("\nquit")
+        tof_sensor.stop_range_continuous()
 
 
 def check_click(distanceList : list):
