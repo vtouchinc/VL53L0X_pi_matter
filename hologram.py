@@ -44,7 +44,7 @@ def main():
     try:
         while True:
             mmDetectedDistance = tof_sensor.get_distance()
-            print(f"Measured distance is :{mmDetectedDistance} mm" )
+            # print(f"Measured distance is :{mmDetectedDistance} mm" )
             frameList.append(mmDetectedDistance)
             check_click(frameList)
             sleep(0.01)
@@ -57,9 +57,10 @@ def check_click(distanceList : list):
         maxDistance = max(distanceList)
         minDistance = min(distanceList)
         distanceInterval = maxDistance - minDistance
+        maxIndex = distanceList.index(maxDistance)
+        minIndex = distanceList.index(minDistance)
+        indexInterval = maxIndex - minIndex
         if(distanceInterval > 60):
-            maxIndex = distanceList.index(maxDistance)
-            minIndex = distanceList.index(minDistance)
             if( maxIndex > minIndex):
                 ## Rising edge
                 print("pull")
@@ -69,8 +70,9 @@ def check_click(distanceList : list):
                 print("push")
                 # pull()
             distanceList.clear()
-        elif(maxDistance < 130):
-            print("toggle")
+        elif(maxDistance < 180):
+            if(indexInterval > 5):
+                print("toggle")
             # toggle()
             distanceList.clear()
 
