@@ -57,18 +57,22 @@ def check_click(distanceList : list):
         maxDistance = max(distanceList)
         minDistance = min(distanceList)
         distanceInterval = maxDistance - minDistance
-        if(distanceInterval > 40):
+        if(distanceInterval > 60):
             maxIndex = distanceList.index(maxDistance)
             minIndex = distanceList.index(minDistance)
             if( maxIndex > minIndex):
                 ## Rising edge
-                print("push")
+                print("pull")
                 # push()
             else:
                 ## falling edge
-                print("pull")
+                print("push")
                 # pull()
-            distanceList.pop()
+            distanceList.clear()
+        elif(maxDistance < 130):
+            print("toggle")
+            # toggle()
+            distanceList.clear()
 
 if __name__== "__main__":
     main()
